@@ -9,6 +9,7 @@ import {
 import { AppModule } from '~app.module';
 import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
 import { env } from '~config/env.config';
+import { ValidationPipe } from '@nestjs/common';
 
 export class Bootstrap {
     private app: NestExpressApplication;
@@ -19,6 +20,10 @@ export class Bootstrap {
 
     initCors(): void {
         this.app.enableCors();
+    }
+
+    initPipes(): void {
+        this.app.useGlobalPipes(new ValidationPipe());
     }
 
     buildSwagger(): void {

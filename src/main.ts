@@ -5,6 +5,7 @@ async function startApp(): Promise<void> {
     const bootstrap = new Bootstrap();
     await bootstrap.initApp();
     bootstrap.initCors();
+    bootstrap.initPipes();
     bootstrap.buildSwagger();
     await bootstrap.start();
 }

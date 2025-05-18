@@ -1,10 +1,7 @@
-import { Column, CreateDateColumn, Entity, PrimaryGeneratedColumn } from 'typeorm';
-import { DistanceUnitEnum } from '~metrics/enums/distance-unit.enum';
+import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn } from 'typeorm';
 import { MetricTypeEnum } from '~metrics/enums/metric-type.enum';
-import { TemperatureUnitEnum } from '~metrics/enums/temperature-unit.enum';
-
-type MetricUnit = DistanceUnitEnum | TemperatureUnitEnum;
-const MetricUnitEnum = [...Object.values(DistanceUnitEnum), ...Object.values(TemperatureUnitEnum)] as const;
+import { UserEntity } from './user.entity';
+import { MetricUnit, MetricUnitEnum } from '~metrics/constants/unit.constant';
 
 @Entity('Metric')
 export class MetricEntity {
@@ -25,4 +22,8 @@ export class MetricEntity {
 
     @CreateDateColumn({ type: 'timestamp' })
     createdAt: Date;
+
+    @ManyToOne(() => UserEntity, (user) => user.metrics)
+    @JoinColumn({ name: 'userId' })
+    user: UserEntity;
 }
