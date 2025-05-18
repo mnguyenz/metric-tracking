@@ -26,4 +26,7 @@ export class MetricEntity {
     @ManyToOne(() => UserEntity, (user) => user.metrics)
     @JoinColumn({ name: 'userId' })
     user: UserEntity;
+
+    @Column()
+    userId: number;
 }

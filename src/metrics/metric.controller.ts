@@ -1,7 +1,9 @@
-import { Body, Controller, Post, Query } from '@nestjs/common';
+import { Body, Controller, Get, Post, Query } from '@nestjs/common';
 import { MetricService } from './metric.service';
 import { CreateMetricDto } from './dto/create-metric.dto';
 import { MetricEntity } from '~entities/metric.entity';
+import { GetMetricsByTypeDto } from './dto/get-metrics-by-type.dto';
+import { GetMetricsChartDto } from './dto/get-metrics-chart.dto';
 
 @Controller('metrics')
 export class MetricController {
@@ -10,5 +12,15 @@ export class MetricController {
     @Post()
     createOne(@Query('userId') userId: number, @Body() createMetricDto: CreateMetricDto): Promise<MetricEntity> {
         return this.metricService.createOne(userId, createMetricDto);
+    }
+
+    @Get('get-by-type')
+    getMetricsByType(@Query() query: GetMetricsByTypeDto) {
+        return this.metricService.getMetricsByType(query);
+    }
+
+    @Get('/chart')
+    getMetricsChart(@Query() query: GetMetricsChartDto) {
+        return this.metricService.getMetricsChart(query);
     }
 }
