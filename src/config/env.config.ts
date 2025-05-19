@@ -1,9 +1,11 @@
 import dotenv from 'dotenv';
 dotenv.config();
 
+const isTest = process.env.NODE_ENV === 'test';
+
 export const env = {
     APP_PORT: process.env.APP_PORT || 3001,
-    ROOT_PATH: process.cwd(),
+    ROOT_PATH: process.cwd() + (isTest ? '/src' : ''),
     DATABASE: {
         CONNECT: process.env.DATABASE_CONNECT as any,
         HOST: process.env.DATABASE_HOST,

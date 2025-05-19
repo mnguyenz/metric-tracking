@@ -49,7 +49,7 @@ export class TypeOrmHelperModule {
     }
 }
 
-const dataSourceContainer: Map<string, DataSource> = new Map();
+export const dataSourceContainer: Map<string, DataSource> = new Map();
 
 export function setDataSource(dataSource: DataSource, dataSourceName = 'default') {
     dataSourceContainer.set(dataSourceName, dataSource);
