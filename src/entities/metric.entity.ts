@@ -11,7 +11,7 @@ export class MetricEntity {
     @Column({ type: 'enum', enum: MetricTypeEnum })
     type: MetricTypeEnum;
 
-    @Column('numeric', { precision: 12, scale: 2 })
+    @Column('numeric', { precision: 12, scale: 6 })
     value: number;
 
     @Column({ type: 'enum', enum: MetricUnitEnum })

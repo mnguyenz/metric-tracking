@@ -1,9 +1,9 @@
 import { Body, Controller, Get, Post, Query } from '@nestjs/common';
-import { MetricService } from './metric.service';
-import { CreateMetricDto } from './dto/create-metric.dto';
+import { MetricService } from '../services/metric.service';
+import { CreateMetricDto } from '../dto/create-metric.dto';
 import { MetricEntity } from '~entities/metric.entity';
-import { GetMetricsByTypeDto } from './dto/get-metrics-by-type.dto';
-import { GetMetricsChartDto } from './dto/get-metrics-chart.dto';
+import { GetMetricsByTypeDto } from '../dto/get-metrics-by-type.dto';
+import { GetMetricsChartDto } from '../dto/get-metrics-chart.dto';
 
 @Controller('metrics')
 export class MetricController {

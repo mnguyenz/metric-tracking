@@ -28,7 +28,7 @@ export function convertDistance(value: number, from: DistanceUnitEnum, to: Dista
     return fromInMeters / toMeter[to];
 }
 
-function convertTemperature(value: number, from: TemperatureUnitEnum, to: TemperatureUnitEnum): number {
+export function convertTemperature(value: number, from: TemperatureUnitEnum, to: TemperatureUnitEnum): number {
     const toCelsius = {
         [TemperatureUnitEnum.CELSIUS]: (v: number) => v,
         [TemperatureUnitEnum.FAHRENHEIT]: (v: number) => (v - 32) * (5 / 9),

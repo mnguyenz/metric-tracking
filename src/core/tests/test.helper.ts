@@ -1,4 +1,4 @@
-import { INestApplication, Type } from '@nestjs/common';
+import { INestApplication, Type, ValidationPipe } from '@nestjs/common';
 import { Test, TestingModule, TestingModuleBuilder } from '@nestjs/testing';
 import request, { CallbackHandler } from 'supertest';
 import { AppModule } from '~app.module';
@@ -24,6 +24,7 @@ export class TestHelper {
         this.moduleFixture = await moduleBuilder.compile();
 
         this.app = this.moduleFixture.createNestApplication();
+        this.app.useGlobalPipes(new ValidationPipe());
 
         await this.app.init();
         this.httpService = this.app.getHttpServer();

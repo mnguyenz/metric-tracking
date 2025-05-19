@@ -1,10 +1,10 @@
 import { Injectable } from '@nestjs/common';
-import { CreateMetricDto } from './dto/create-metric.dto';
+import { CreateMetricDto } from '../dto/create-metric.dto';
 import { MetricRepository } from '~repositories/metric.repository';
 import { MetricEntity } from '~entities/metric.entity';
-import { convertMetricUnit } from './utils/convert.util';
-import { GetMetricsByTypeDto } from './dto/get-metrics-by-type.dto';
-import { GetMetricsChartDto } from './dto/get-metrics-chart.dto';
+import { convertMetricUnit } from '../utils/convert.util';
+import { GetMetricsByTypeDto } from '../dto/get-metrics-by-type.dto';
+import { GetMetricsChartDto } from '../dto/get-metrics-chart.dto';
 
 @Injectable()
 export class MetricService {

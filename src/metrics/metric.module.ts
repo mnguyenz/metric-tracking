@@ -1,6 +1,6 @@
 import { Module } from '@nestjs/common';
-import { MetricService } from './metric.service';
-import { MetricController } from './metric.controller';
+import { MetricService } from './services/metric.service';
+import { MetricController } from './controllers/metric.controller';
 import { TypeOrmHelperModule } from '~core/modules/typeorm-module.module';
 import { MetricRepository } from '~repositories/metric.repository';
 
